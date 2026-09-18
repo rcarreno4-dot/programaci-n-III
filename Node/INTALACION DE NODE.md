@@ -2,17 +2,6 @@ INTALACION DE NODE
 
  
 
-
-
-
- 
-
-
- 
-
-
- 
-
 Node.js es un entorno de ejecución de JavaScript fuera del navegador web. Permite ejecutar código JavaScript directamente en el servidor o en tu computadora para construir aplicaciones de backend, APIs, herramientas de terminal y microservicios.
 
  

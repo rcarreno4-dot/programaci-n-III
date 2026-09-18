@@ -1,6 +1,7 @@
 INTALACION DE NODE
 
- 
+ <img width="496" height="383" alt="node" src="https://github.com/user-attachments/assets/adf7437d-e05c-4e41-af4f-5ae6912ff631" />
+
 
 Node.js 
 

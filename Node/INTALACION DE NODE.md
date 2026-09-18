@@ -2,8 +2,11 @@ INTALACION DE NODE
 
  
 
-Node.js es un entorno de ejecución de JavaScript fuera del navegador web. Permite ejecutar código JavaScript directamente en el servidor o en tu computadora para construir aplicaciones de backend, APIs, herramientas de terminal y microservicios.
+Node.js 
 
+Es un entorno de ejecución de JavaScript fuera del navegador web. 
+Permite ejecutar código JavaScript directamente en el servidor o en tu computadora para construir aplicaciones de backend, APIs, herramientas de terminal y microservicios.
+codigo abierto y multiplataforma que permite que los desarroladores ejecutar coodigo javaScript.
  
 
 Características principales
@@ -15,3 +18,13 @@ Usos comunes
 •	Aplicaciones en tiempo real (chats, juegos multijugador, colaboración en vivo con WebSockets).
 •	Herramientas de comandos (CLI) y automatización de tareas.
 •	Servidores de desarrollo para frameworks frontend como React, Angular o Vue.
+
+
+
+APIs 
+
+es un conjunto de reglas y protocolos que permite que dos aplicaciones de software se comuniquen e intercambien datos entre sí.
+
+Funciona como un intermediario o mesero: tú (el cliente) haces un pedido, la API lleva la solicitud al sistema backend (el servidor) y luego te devuelve la respuesta.
+
+<img width="1062" height="695" alt="Captura de pantalla 2026-09-17 193808" src="https://github.com/user-attachments/assets/b477e4d6-539d-4365-9334-e66e75b9766b" />

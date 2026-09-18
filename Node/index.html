@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instalación y Conceptos de Node.js</title>
+    <style>
+        :root {
+            --primary-color: #339933;
+            --secondary-color: #215732;
+            --bg-color: #f4f6f8;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --border-color: #e1e4e8;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+        }
+
+        .section-card {
+            background: var(--card-bg);
+            padding: 25px 30px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+            margin-top: 0;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            margin-top: 20px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .img-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .img-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .img-caption {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: #f0f4f0;
+            color: var(--secondary-color);
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>INSTALACIÓN Y CONCEPTOS DE NODE.JS</h1>
+        </header>
+
+        <!-- Sección Node.js -->
+        <section class="section-card">
+            <h2>¿Qué es Node.js?</h2>
+            <p><strong>Node.js</strong> es un entorno de ejecución de JavaScript fuera del navegador web[cite: 1]. Permite ejecutar código JavaScript directamente en el servidor o en tu computadora para construir aplicaciones de backend, APIs, herramientas de terminal y microservicios[cite: 1]. Es de código abierto y multiplataforma, lo que permite a los desarrolladores ejecutar código JavaScript[cite: 1].</p>
+            
+            <div class="img-container">
+                <img src="https://github.com/user-attachments/assets/adf7437d-e05c-4e41-af4f-5ae6912ff631" alt="Node.js">
+            </div>
+
+            <h3>Características principales</h3>
+            <ul>
+                <li><strong>Motor V8:</strong> Utiliza el motor de Google Chrome para traducir JavaScript a lenguaje máquina de alta velocidad[cite: 1].</li>
+                <li><strong>Modelo Asíncrono e Orientado a Eventos:</strong> Maneja múltiples tareas simultáneas sin bloquear el programa, lo que lo hace muy eficiente para aplicaciones en tiempo real[cite: 1].</li>
+                <li><strong>Ecosistema NPM:</strong> Incluye npm (Node Package Manager), el registro de librerías de software más grande del mundo para instalar módulos de terceros[cite: 1].</li>
+            </ul>
+
+            <h3>Usos comunes</h3>
+            <ul>
+                <li>Servicios web y APIs RESTful[cite: 1].</li>
+                <li>Aplicaciones en tiempo real (chats, juegos multijugador, colaboración en vivo con WebSockets)[cite: 1].</li>
+                <li>Herramientas de comandos (CLI) y automatización de tareas[cite: 1].</li>
+                <li>Servidores de desarrollo para frameworks frontend como React, Angular o Vue[cite: 1].</li>
+            </ul>
+
+            <h3>¿Para qué sirve?</h3>
+            <p>Se utiliza principalmente para desarrollar el backend de aplicaciones modernas, conectar sistemas y crear herramientas de software[cite: 1]:</p>
+            <ul>
+                <li><strong>Servidores web y APIs RESTful:</strong> Permite construir el motor detrás de sitios web o aplicaciones móviles para procesar datos, gestionar usuarios y responder a peticiones HTTP[cite: 1].</li>
+                <li><strong>Aplicaciones en tiempo real:</strong> Es ideal para sistemas que requieren comunicación instantánea entre cliente y servidor, como chats en vivo, juegos multijugador o herramientas colaborativas (ej. Google Docs) mediante WebSockets[cite: 1].</li>
+                <li><strong>Microservicios y arquitectura de eventos:</strong> Facilita la división de aplicaciones grandes en servicios pequeños, independientes y escalables[cite: 1].</li>
+                <li><strong>Herramientas de línea de comandos (CLI):</strong> Permite crear scripts y automatizar tareas de desarrollo o administración de sistemas[cite: 1].</li>
+                <li><strong>Gestión de paquetes de desarrollo:</strong> Sirve de base para utilizar npm (Node Package Manager), permitiendo instalar librerías y ejecutar entornos de desarrollo para frameworks como React, Vue o Angular[cite: 1].</li>
+            </ul>
+        </section>
+
+        <!-- Sección APIs -->
+        <section class="section-card">
+            <h2>APIs</h2>
+            <p>Es un conjunto de reglas y protocolos que permite que dos aplicaciones de software se comuniquen e intercambien datos entre sí[cite: 1].</p>
+            <p>Funciona como un intermediario o mesero: tú (el cliente) haces un pedido, la API lleva la solicitud al sistema backend (el servidor) y luego te devuelve la respuesta[cite: 1].</p>
+
+            <div class="img-container">
+                <img src="https://github.com/user-attachments/assets/b477e4d6-539d-4365-9334-e66e75b9766b" alt="Diagrama de API">
+            </div>
+        </section>
+
+        <!-- Sección Backend -->
+        <section class="section-card">
+            <h2>¿Qué es Backend?</h2>
+            <p>El <strong>Backend</strong> es la capa interna de una aplicación web o móvil que funciona del lado del servidor[cite: 1]. Es la parte "invisible" para el usuario que se encarga de procesar la lógica de negocio, gestionar la base de datos, autenticar usuarios y garantizar la seguridad de la información[cite: 1].</p>
+
+            <div class="img-container">
+                <img src="https://github.com/user-attachments/assets/030edf24-12ee-45d3-a1cc-72a744a349f3" alt="Arquitectura del Backend">
+                <div class="img-caption">Arquitectura lógica del Backend. Fuente: VectorMine / Getty Images[cite: 1]</div>
+            </div>
+
+            <h3>Componentes principales</h3>
+            <ul>
+                <li><strong>Servidor:</strong> La computadora o infraestructura en la nube que aloja y ejecuta la aplicación[cite: 1].</li>
+                <li><strong>Base de Datos:</strong> El lugar donde se almacena la información estructurada (como usuarios, productos o transacciones)[cite: 1]. Ejemplos: PostgreSQL, MongoDB, MySQL[cite: 1].</li>
+                <li><strong>APIs:</strong> Los puntos de contacto que permiten al Frontend (la pantalla del usuario) enviar solicitudes y recibir datos del servidor[cite: 1].</li>
+                <li><strong>Lógica de Negocio:</strong> El código que procesa las reglas del sistema (por ejemplo, verificar si hay stock antes de cobrar una compra)[cite: 1].</li>
+            </ul>
+
+            <h3>Lenguajes y herramientas comunes</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Lenguaje / Entorno</th>
+                        <th>Frameworks populares</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>JavaScript / TypeScript</td>
+                        <td>Node.js, Express, NestJS</td>
+                    </tr>
+                    <tr>
+                        <td>Python</td>
+                        <td>Django, FastAPI, Flask</td>
+                    </tr>
+                    <tr>
+                        <td>Java</td>
+                        <td>Spring Boot</td>
+                    </tr>
+                    <tr>
+                        <td>PHP</td>
+                        <td>Laravel</td>
+                    </tr>
+                    <tr>
+                        <td>C#</td>
+                        <td>.NET Core</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </div>
+
+</body>
+</html>

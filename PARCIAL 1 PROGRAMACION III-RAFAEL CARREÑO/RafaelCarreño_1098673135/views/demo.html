@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Tap | fabiangames</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <link rel="stylesheet" href="../css/demo.css">
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="../index.html"><span class="brand-mark">F</span><span><strong>fabiangames</strong><small>Game hub</small></span></a>
+        <nav class="main-nav" aria-label="Navegación principal"><a class="nav-link" href="../index.html">Inicio</a><a class="nav-link" href="catalogo.html">Catálogo</a><a class="nav-link active" href="demo.html">Demo</a></nav>
+        <span class="student-id"><strong>Rafael Carreño</strong><small>C.C. 1098673135</small></span>
+    </header>
+
+    <main class="page-main demo-main">
+        <div class="page-heading demo-heading"><p class="eyebrow">Demo jugable · JavaScript</p><h1>Neon <em>Tap.</em></h1><p>Haz clic en el objetivo tantas veces como puedas antes de que termine el tiempo.</p></div>
+        <section class="game-panel" aria-labelledby="game-title">
+            <div class="game-bar"><div><span class="game-label">PARTIDA ACTIVA</span><h2 id="game-title">Atrapa el pulso</h2></div><div class="game-stats"><span>PUNTOS <b id="score">0</b></span><span>TIEMPO <b id="time">20</b></span></div></div>
+            <div id="game-board" class="game-board" aria-label="Área de juego"><div class="game-message" id="game-message">Pulsa iniciar para comenzar</div><button id="target" class="target" aria-label="Objetivo">✦</button></div>
+            <div class="game-actions"><button id="start-button" class="button button-primary">Iniciar partida <span>→</span></button><span id="game-status">Listo para jugar</span></div>
+        </section>
+        <p class="demo-note">Este demo usa eventos, temporizador, manipulación del DOM y estilos CSS para demostrar la integración de las tres tecnologías.</p>
+    </main>
+    <footer class="site-footer"><span>fabiangames · Demo interactivo</span><span>HTML / CSS / JavaScript</span></footer>
+    <script type="module" src="../controllers/demo-controller.js"></script>
+</body>
+</html>

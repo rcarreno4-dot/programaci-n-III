@@ -1,0 +1,9 @@
+// Modelo: fuente de datos inicial de videojuegos para la API REST simulada.
+export const games = [
+    { id: 1, title: 'Neon Rift', genre: 'Acción', year: 2025, rating: 4.8, color: 'coral', image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=80', description: 'Cruza una ciudad eléctrica, domina el ritmo y descubre quién controla la última zona libre.' },
+    { id: 2, title: 'Mossbound', genre: 'Aventura', year: 2024, rating: 4.6, color: 'lime', image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=80', description: 'Explora un bosque suspendido y reconstruye sus antiguos caminos con criaturas luminosas.' },
+    { id: 3, title: 'Orbit 09', genre: 'Estrategia', year: 2025, rating: 4.7, color: 'blue', image: 'https://images.unsplash.com/photo-1614294148960-9aa740632a87?auto=format&fit=crop&w=800&q=80', description: 'Administra una estación orbital al límite y decide qué futuro tendrá la tripulación.' },
+    { id: 4, title: 'Pixel Drift', genre: 'Acción', year: 2023, rating: 4.4, color: 'violet', image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80', description: 'Compite en circuitos imposibles donde cada curva cambia las reglas del tablero.' },
+    { id: 5, title: 'Echo Valley', genre: 'Aventura', year: 2024, rating: 4.5, color: 'yellow', image: 'https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=800&q=80', description: 'Sigue las señales de una radio antigua para encontrar el origen del eco.' },
+    { id: 6, title: 'Iron Bloom', genre: 'Estrategia', year: 2022, rating: 4.3, color: 'green', image: 'https://images.unsplash.com/photo-1603481546238-487240415921?auto=format&fit=crop&w=800&q=80', description: 'Haz crecer una colonia entre máquinas oxidadas y recursos que nunca sobran.' }
+];

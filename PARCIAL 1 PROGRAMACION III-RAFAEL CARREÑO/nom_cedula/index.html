@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Panel del proyecto integrador nom_cedula">
+    <title>nom_cedula | Proyecto integrador</title>
+    <link rel="stylesheet" href="view/styles.css">
+</head>
+<body>
+    <div class="app-shell">
+        <header class="topbar">
+            <a class="brand" href="#resumen" aria-label="Ir al resumen del proyecto">
+                <span class="brand-mark" aria-hidden="true">NC</span>
+                <span>
+                    <strong>nom_cedula</strong>
+                    <small>Proyecto integrador</small>
+                </span>
+            </a>
+            <div class="status-pill"><span class="status-dot"></span> En desarrollo</div>
+        </header>
+
+        <div class="workspace">
+            <aside class="sidebar" aria-label="Navegación del proyecto">
+                <div class="sidebar-label">Explorar proyecto</div>
+                <nav class="tabs" role="tablist" aria-label="Secciones del proyecto">
+                    <button class="tab is-active" role="tab" aria-selected="true" aria-controls="panel-resumen" data-tab="resumen">
+                        <span class="tab-icon" aria-hidden="true">◈</span> Resumen
+                    </button>
+                    <button class="tab" role="tab" aria-selected="false" aria-controls="panel-equipo" data-tab="equipo">
+                        <span class="tab-icon" aria-hidden="true">◎</span> Equipo
+                    </button>
+                    <button class="tab" role="tab" aria-selected="false" aria-controls="panel-diagnostico" data-tab="diagnostico">
+                        <span class="tab-icon" aria-hidden="true">⌁</span> Diagnóstico
+                    </button>
+                    <button class="tab" role="tab" aria-selected="false" aria-controls="panel-propuesta" data-tab="propuesta">
+                        <span class="tab-icon" aria-hidden="true">↗</span> Propuesta
+                    </button>
+                    <button class="tab" role="tab" aria-selected="false" aria-controls="panel-evidencias" data-tab="evidencias">
+                        <span class="tab-icon" aria-hidden="true">▧</span> Evidencias
+                    </button>
+                </nav>
+                <div class="sidebar-footnote">
+                    <span class="footnote-icon" aria-hidden="true">✦</span>
+                    <p>Construyendo soluciones que hacen visible el progreso.</p>
+                </div>
+            </aside>
+
+            <main class="main-content">
+                <div id="app" aria-live="polite"></div>
+            </main>
+        </div>
+    </div>
+
+    <script type="module" src="controller/app.js"></script>
+</body>
+</html>

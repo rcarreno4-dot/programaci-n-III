@@ -1,0 +1,207 @@
+/* Selector 01: body define los estilos generales de toda la página. */
+body {
+    background-color: #eef3f1;
+    color: #203238;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Selector 02: .contenedor limita y centra el contenido. */
+.contenedor {
+    background-color: #ffffff;
+    margin: 30px auto;
+    max-width: 900px;
+    min-height: 90vh;
+    padding: 24px;
+}
+
+/* Selector 03: .cabecera crea una zona visual para el encabezado. */
+.cabecera {
+    background-color: #0b6e69;
+    border-radius: 8px;
+    color: #ffffff;
+    padding: 35px;
+    text-align: center;
+}
+
+/* Selector 04: .etiqueta sirve como texto pequeño de identificación. */
+.etiqueta {
+    color: #d9ed65;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin: 0 0 10px;
+    text-transform: uppercase;
+}
+
+/* Selector 05: h1 destaca el título principal. */
+h1 {
+    font-size: 42px;
+    letter-spacing: -1px;
+    margin: 0;
+}
+
+/* Selector 06: .subtitulo complementa el encabezado. */
+.subtitulo {
+    color: #d8ece9;
+    font-size: 16px;
+    margin: 12px 0 0;
+}
+
+/* Selector 07: .navegacion organiza los enlaces. */
+.navegacion {
+    background-color: #17252d;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin: 18px 0;
+    padding: 12px;
+}
+
+/* Selector 08: .enlace da formato a cada vínculo del menú. */
+.enlace {
+    color: #ffffff;
+    font-size: 14px;
+    padding: 8px 14px;
+    text-decoration: none;
+}
+
+/* Selector 09: .enlace:hover cambia el enlace al pasar el cursor. */
+.enlace:hover {
+    background-color: #ef725f;
+    border-radius: 4px;
+}
+
+/* Selector 10: .activo identifica la pestaña actual. */
+.activo {
+    background-color: #087f7b;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* Selector 11: .contenido separa el contenido principal. */
+.contenido {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: 1fr 260px;
+}
+
+/* Selector 12: .seccion crea un bloque de contenido. */
+.seccion {
+    background-color: #f8faf7;
+    border: 1px solid #d9e3de;
+    border-radius: 8px;
+    padding: 24px;
+}
+
+/* Selector 13: .bienvenida distingue el primer bloque. */
+.bienvenida {
+    grid-column: 1 / -1;
+    min-height: 150px;
+}
+
+/* Selector 14: h2 organiza los títulos secundarios. */
+h2 {
+    color: #0b6e69;
+    font-size: 25px;
+    margin: 0 0 12px;
+}
+
+/* Selector 15: p aplica una separación común a los párrafos. */
+p {
+    font-size: 15px;
+    margin-top: 0;
+}
+
+/* Selector 16: .boton convierte un enlace en una acción visual. */
+.boton {
+    background-color: #ef725f;
+    border-radius: 5px;
+    color: #ffffff;
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 16px;
+    text-decoration: none;
+}
+
+/* Selector 17: .temas controla la apariencia de la lista. */
+.temas {
+    background-color: #fff8e1;
+    border-left: 5px solid #f4c95d;
+}
+
+/* Selector 18: .lista elimina el estilo predeterminado de la lista. */
+.lista {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Selector 19: .item separa cada elemento de la lista. */
+.item {
+    border-bottom: 1px solid #e1e7e2;
+    padding: 10px 0;
+}
+
+/* Selector 20: .destacado resalta un elemento específico. */
+.destacado {
+    color: #0b6e69;
+    font-weight: bold;
+}
+
+/* Selector 21: .complemento representa información secundaria. */
+.complemento {
+    background-color: #d9edeb;
+    border-radius: 8px;
+    padding: 24px;
+}
+
+/* Selector 22: h3 define el título del bloque complementario. */
+h3 {
+    color: #075957;
+    font-size: 18px;
+    margin-top: 0;
+}
+
+/* Selector 23: code diferencia el nombre de una clase CSS. */
+code {
+    background-color: #ffffff;
+    border: 1px solid #b6d4d0;
+    color: #bd5345;
+    padding: 2px 5px;
+}
+
+/* Selector 24: .pie cierra la página con información final. */
+.pie {
+    border-top: 2px solid #d9e3de;
+    color: #68777c;
+    margin-top: 18px;
+    padding-top: 18px;
+    text-align: center;
+}
+
+/* Selector 25: small muestra información secundaria en menor tamaño. */
+small {
+    color: #68777c;
+    font-size: 11px;
+}
+
+/* Adaptación para pantallas pequeñas. */
+@media (max-width: 650px) {
+    .contenedor {
+        margin: 0;
+        padding: 14px;
+    }
+
+    .contenido {
+        grid-template-columns: 1fr;
+    }
+
+    .navegacion {
+        flex-wrap: wrap;
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+}

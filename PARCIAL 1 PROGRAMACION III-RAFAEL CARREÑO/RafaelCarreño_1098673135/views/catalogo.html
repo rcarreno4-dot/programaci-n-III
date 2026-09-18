@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo | fabiangames</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body data-page="catalogo">
+    <header class="site-header">
+        <a class="brand" href="../index.html"><span class="brand-mark">F</span><span><strong>fabiangames</strong><small>Game hub</small></span></a>
+        <nav class="main-nav" aria-label="Navegación principal"><a class="nav-link" href="../index.html">Inicio</a><a class="nav-link active" href="catalogo.html">Catálogo</a><a class="nav-link" href="detalle.html?id=1">Detalle</a><a class="nav-link" href="demo.html">Demo</a></nav>
+        <span class="student-id"><strong>Rafael Carreño</strong><small>C.C. 1098673135</small></span>
+    </header>
+    <main class="page-main">
+        <div class="page-heading"><p class="eyebrow">Servicio de catálogo · GET /games</p><h1>Todos los mundos<br><em>disponibles.</em></h1><p>Consulta la colección y guarda el título que quieras volver a jugar.</p></div>
+        <div class="catalog-toolbar"><label for="genre-filter">Filtrar por género</label><select id="genre-filter"><option value="all">Todos los géneros</option><option value="Acción">Acción</option><option value="Aventura">Aventura</option><option value="Estrategia">Estrategia</option></select><span id="game-count"></span></div>
+        <div id="catalog-grid" class="game-grid"><p class="loading">Cargando catálogo...</p></div>
+    </main>
+    <footer class="site-footer"><span>fabiangames · Proyecto académico</span><span>Servicio: CatalogService</span></footer>
+    <script type="module" src="../controllers/catalog-controller.js"></script>
+</body>
+</html>

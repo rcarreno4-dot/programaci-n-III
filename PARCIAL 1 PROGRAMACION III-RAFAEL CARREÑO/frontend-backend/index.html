@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comparación entre Frontend y Backend en el desarrollo web">
+    <title>Frontend + Backend | Capas web</title>
+    <!-- HTML define la estructura y el contenido semántico de la página. -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="#inicio" aria-label="Ir al inicio">
+            <span class="brand-symbol" aria-hidden="true">&lt;/&gt;</span>
+            <!-- header contiene la identidad y la información general del sitio. -->
+            <span><strong>Web Layers</strong><small>Frontend + Backend</small></span>
+        </a>
+        <span class="student-label">Ejemplo académico</span>
+    </header>
+
+    <main id="inicio">
+        <section class="hero" aria-labelledby="titulo-principal">
+            <div class="hero-copy">
+                <p class="eyebrow">Arquitectura web · 01</p>
+                <h1>Dos mundos. Una aplicación.</h1>
+                <p id="titulo-principal" class="hero-text">Frontend y Backend trabajan en capas distintas, pero se conectan para convertir una idea en una experiencia web completa.</p>
+                <a class="primary-link" href="#comparacion">Explorar diferencias <span aria-hidden="true">↓</span></a>
+            </div>
+            <div class="layer-visual" aria-label="Diagrama visual de las capas de una aplicación web">
+                <div class="layer-card layer-client"><span>01</span><strong>Frontend</strong><small>Lo que el usuario ve</small></div>
+                <div class="connection" aria-hidden="true">↕</div>
+                <div class="layer-card layer-server"><span>02</span><strong>Backend</strong><small>Lo que hace funcionar</small></div>
+            </div>
+        </section>
+
+        <section id="comparacion" class="comparison-section" aria-labelledby="comparacion-titulo">
+            <div class="section-heading">
+                <div><p class="eyebrow">Mapa de responsabilidades · 02</p><h2 id="comparacion-titulo">¿Qué ocurre en cada capa?</h2></div>
+                <div class="view-switcher" role="group" aria-label="Filtrar tecnologías">
+                    <button class="filter-button is-selected" data-filter="all">Todas</button>
+                    <button class="filter-button" data-filter="frontend">Frontend</button>
+                    <button class="filter-button" data-filter="backend">Backend</button>
+                </div>
+            </div>
+            <div class="technology-grid">
+                <article class="technology-card frontend-card" data-layer="frontend">
+                    <div class="card-top"><span class="layer-tag">Frontend</span><span class="card-icon" aria-hidden="true">◉</span></div>
+                    <h3>La interfaz que puedes usar</h3>
+                    <p>Se ejecuta principalmente en el navegador y responde a las acciones de la persona usuaria.</p>
+                    <dl>
+                        <div><dt>Función</dt><dd>Presentar e interactuar</dd></div>
+                        <div><dt>Lenguajes</dt><dd>HTML · CSS · JavaScript</dd></div>
+                        <div><dt>Herramientas</dt><dd>React · Vue · Figma</dd></div>
+                    </dl>
+                </article>
+                <article class="technology-card backend-card" data-layer="backend">
+                    <div class="card-top"><span class="layer-tag">Backend</span><span class="card-icon" aria-hidden="true">◌</span></div>
+                    <h3>La lógica que no ves</h3>
+                    <p>Se ejecuta en el servidor, procesa reglas y protege la información antes de entregar una respuesta.</p>
+                    <dl>
+                        <div><dt>Función</dt><dd>Procesar y almacenar</dd></div>
+                        <div><dt>Lenguajes</dt><dd>Node.js · Python · Java</dd></div>
+                        <div><dt>Herramientas</dt><dd>Express · Django · SQL</dd></div>
+                    </dl>
+                </article>
+            </div>
+        </section>
+
+        <section class="workflow-section" aria-labelledby="flujo-titulo">
+            <div class="section-heading"><div><p class="eyebrow">Proceso de una solicitud · 03</p><h2 id="flujo-titulo">Así colaboran las capas</h2></div></div>
+            <div class="workflow">
+                <article class="workflow-step"><span>01</span><h3>Acción</h3><p>La persona pulsa un botón o envía un formulario.</p><b>Frontend</b></article>
+                <div class="workflow-arrow" aria-hidden="true">→</div>
+                <article class="workflow-step"><span>02</span><h3>Solicitud</h3><p>El navegador envía datos mediante una API.</p><b>Conexión</b></article>
+                <div class="workflow-arrow" aria-hidden="true">→</div>
+                <article class="workflow-step"><span>03</span><h3>Respuesta</h3><p>El servidor procesa y devuelve un resultado.</p><b>Backend</b></article>
+                <div class="workflow-arrow" aria-hidden="true">→</div>
+                <article class="workflow-step"><span>04</span><h3>Resultado</h3><p>La interfaz actualiza lo que vemos.</p><b>Frontend</b></article>
+            </div>
+        </section>
+
+        <section class="takeaway" aria-labelledby="conclusion-titulo">
+            <div><p class="eyebrow">Idea clave · 04</p><h2 id="conclusion-titulo">El desarrollo web necesita ambas perspectivas.</h2></div>
+            <p>Una interfaz atractiva sin lógica no resuelve el problema. Un servidor potente sin una experiencia clara tampoco. La integración hace posible una aplicación útil.</p>
+        </section>
+    </main>
+
+    <footer class="site-footer"><span>Web Layers / Desarrollo web</span><span>HTML · CSS · JS</span></footer>
+    <script src="js/app.js"></script>
+</body>
+</html>

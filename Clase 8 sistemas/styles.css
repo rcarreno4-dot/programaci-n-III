@@ -1,0 +1,399 @@
+/*
+╔════════════════════════════════════════════════════════════╗
+║            ESTILOS CSS - Monitor de Sistema               ║
+║  Define todos los estilos visuales de la aplicación web   ║
+║  Organizado por secciones temáticas                       ║
+╚════════════════════════════════════════════════════════════╝
+*/
+
+/* ============================================================
+   SECCIÓN 1: RESET GLOBAL
+   Elimina estilos por defecto del navegador
+   ============================================================ */
+* {
+    /* Elimina espacios externos de todos los elementos */
+    margin: 0;
+    
+    /* Elimina espacios internos de todos los elementos */
+    padding: 0;
+    
+    /* Incluye padding y border en el cálculo de ancho/alto
+       Facilita los cálculos de tamaño */
+    box-sizing: border-box;
+}
+
+/* ============================================================
+   SECCIÓN 2: ESTILOS DE BODY Y FONDO
+   Configura el fondo, fuente y apariencia general
+   ============================================================ */
+body {
+    /* Fuentes: Segoe UI (Windows), Tahoma, Geneva, etc.
+       sans-serif es el fallback si ninguna está disponible */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    /* Fondo degradado de morado azulado a morado rojizo
+       135deg: ángulo de izquierda-arriba a derecha-abajo */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    
+    /* Altura mínima = 100% del viewport (pantalla completa) */
+    min-height: 100vh;
+    
+    /* Espaciado interno a los 4 lados */
+    padding: 20px;
+}
+
+/* ============================================================
+   SECCIÓN 3: CONTENEDOR PRINCIPAL
+   Limita el ancho máximo y centra el contenido
+   ============================================================ */
+.container {
+    /* Ancho máximo para pantallas grandes */
+    max-width: 1200px;
+    
+    /* Centra horizontalmente con márgenes automáticos
+       0 = sin margen arriba/abajo
+       auto = margen igual izquierda/derecha (centra) */
+    margin: 0 auto;
+}
+
+/* ============================================================
+   SECCIÓN 4: ENCABEZADO (HEADER)
+   Estilos para el título y descripción principal
+   ============================================================ */
+header {
+    /* Centra el contenido horizontalmente */
+    text-align: center;
+    
+    /* Texto de color blanco (contrasta con fondo morado) */
+    color: white;
+    
+    /* Espaciado inferior */
+    margin-bottom: 40px;
+}
+
+header h1 {
+    /* Tamaño de fuente: 2.5 veces el tamaño base */
+    font-size: 2.5em;
+    
+    /* Espaciado inferior */
+    margin-bottom: 10px;
+    
+    /* Sombra de texto: 2px derecha, 2px abajo, 4px difuminado, negro 30% */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================================
+   SECCIÓN 5: BARRA DE NAVEGACIÓN / BOTONES
+   Estilos para el grupo de controles
+   ============================================================ */
+.button-group {
+    /* Alineación de botones en fila */
+    display: flex;
+    
+    /* Espacio entre botones */
+    gap: 10px;
+    
+    /* Centra horizontalmente */
+    justify-content: center;
+    
+    /* Espaciado inferior */
+    margin-bottom: 30px;
+}
+
+/* ============================================================
+   SECCIÓN 6: GRID DE MÉTRICAS
+   Sistema de columnas responsivo para las tarjetas
+   ============================================================ */
+.grid {
+    /* Activa sistema de grid (tabla flexible) */
+    display: grid;
+    
+    /* Grid responsivo:
+       repeat(auto-fit, minmax(280px, 1fr))
+       - repeat: repite el patrón
+       - auto-fit: cantidad automática de columnas
+       - minmax(280px, 1fr): mínimo 280px, máximo 1 fracción
+       
+       Resultado: 4 columnas en desktop, 2 en tablet, 1 en móvil */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    
+    /* Espacio entre columnas y filas */
+    gap: 25px;
+    
+    /* Espaciado inferior */
+    margin-bottom: 30px;
+}
+
+/* ============================================================
+   SECCIÓN 7: TARJETAS (CARDS)
+   Estilos para cada métrica de monitoreo
+   ============================================================ */
+.card {
+    /* Fondo blanco */
+    background: white;
+    
+    /* Esquinas redondeadas */
+    border-radius: 15px;
+    
+    /* Espaciado interno */
+    padding: 25px;
+    
+    /* Sombra: 0px horizontal, 10px vertical, 30px difuminado, negro 20% */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    
+    /* Animación suave al cambiar: transform y box-shadow en 0.3 segundos */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto al pasar el mouse sobre una tarjeta */
+.card:hover {
+    /* Sube 10px hacia arriba (-Y) */
+    transform: translateY(-10px);
+    
+    /* Sombra más grande al elevarse */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Icono de la tarjeta */
+.card-icon {
+    /* Tamaño grande (2 veces el tamaño base) */
+    font-size: 2em;
+    
+    /* Espaciado inferior */
+    margin-bottom: 10px;
+}
+
+/* Título de la tarjeta */
+.card-title {
+    /* Tamaño 10% más grande que lo normal */
+    font-size: 1.1em;
+    
+    /* Gris oscuro */
+    color: #333;
+    
+    /* Espaciado inferior */
+    margin-bottom: 15px;
+    
+    /* Espesor de fuente aumentado */
+    font-weight: 600;
+}
+
+/* ============================================================
+   SECCIÓN 8: BARRAS DE PROGRESO
+   Estilos para las barras que muestran porcentaje de uso
+   ============================================================ */
+.progress-bar {
+    /* Ancho completo del contenedor */
+    width: 100%;
+    
+    /* Alto de la barra */
+    height: 10px;
+    
+    /* Color de fondo gris claro */
+    background: #e0e0e0;
+    
+    /* Esquinas redondeadas */
+    border-radius: 5px;
+    
+    /* Recorta contenido que sale de los bordes */
+    overflow: hidden;
+    
+    /* Espaciado vertical */
+    margin: 15px 0;
+}
+
+/* El relleno que crece según el porcentaje */
+.progress-fill {
+    /* Altura = altura del contenedor (100%) */
+    height: 100%;
+    
+    /* Esquinas redondeadas */
+    border-radius: 5px;
+    
+    /* Animación suave al cambiar ancho en 0.3 segundos */
+    transition: width 0.3s ease;
+}
+
+/* CPU: Gradiente de rojo (2 tonos de rojo) */
+.cpu .progress-fill {
+    background: linear-gradient(90deg, #ff6b6b, #ee5a6f);
+}
+
+/* Memoria: Gradiente de cian (azul turquesa) */
+.memory .progress-fill {
+    background: linear-gradient(90deg, #4ecdc4, #44a7a8);
+}
+
+/* Disco: Gradiente de naranja */
+.disk .progress-fill {
+    background: linear-gradient(90deg, #f7b731, #ffa502);
+}
+
+/* Red: Gradiente de púrpura */
+.network .progress-fill {
+    background: linear-gradient(90deg, #a29bfe, #6c5ce7);
+}
+
+/* ============================================================
+   SECCIÓN 9: VALORES Y ESTADOS
+   Estilos para mostrar porcentaje y estado actual
+   ============================================================ */
+
+/* Porcentaje (ej: "85%") */
+.value {
+    /* Tamaño muy grande */
+    font-size: 2em;
+    
+    /* Peso de fuente aumentado */
+    font-weight: bold;
+    
+    /* Color morado (coincide con tema) */
+    color: #667eea;
+    
+    /* Espaciado vertical */
+    margin: 10px 0;
+}
+
+/* Estado: Óptimo/Advertencia/Crítico */
+.status {
+    /* Tamaño de fuente reducido */
+    font-size: 0.9em;
+    
+    /* Gris neutral por defecto */
+    color: #666;
+    
+    /* Espaciado superior */
+    margin-top: 10px;
+}
+
+/* Estado ÓPTIMO (uso bajo) - Verde */
+.status.good {
+    color: #27ae60;  /* Verde oscuro */
+}
+
+/* Estado ADVERTENCIA (uso medio) - Amarillo */
+.status.warning {
+    color: #f39c12;  /* Amarillo/naranja */
+}
+
+/* Estado CRÍTICO (uso alto) - Rojo */
+.status.critical {
+    color: #e74c3c;  /* Rojo oscuro */
+}
+
+/* ============================================================
+   SECCIÓN 10: SECCIÓN DE GRÁFICOS
+   Estilos para el contenedor del canvas
+   ============================================================ */
+.chart-container {
+    /* Fondo blanco como las tarjetas */
+    background: white;
+    
+    /* Esquinas redondeadas */
+    border-radius: 15px;
+    
+    /* Espaciado interno */
+    padding: 25px;
+    
+    /* Sombra similar a las tarjetas */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    
+    /* Espaciado inferior */
+    margin-bottom: 30px;
+}
+
+/* Título del gráfico */
+.chart-title {
+    /* Tamaño más grande que títulos de tarjetas */
+    font-size: 1.3em;
+    
+    /* Gris oscuro */
+    color: #333;
+    
+    /* Espaciado inferior */
+    margin-bottom: 20px;
+    
+    /* Espesor de fuente */
+    font-weight: 600;
+}
+
+/* Canvas: elemento para dibujar el gráfico */
+canvas {
+    /* Ancho máximo = ancho del contenedor */
+    max-width: 100%;
+    
+    /* Altura automática (mantiene proporción) */
+    height: auto;
+}
+
+/* ============================================================
+   SECCIÓN 11: PIE DE PÁGINA (FOOTER)
+   Estilos para la información de estado y copyright
+   ============================================================ */
+.footer {
+    /* Centra el contenido */
+    text-align: center;
+    
+    /* Texto blanco para contrastar con fondo morado */
+    color: white;
+    
+    /* Espaciado interno */
+    padding: 20px;
+    
+    /* Tamaño de fuente reducido */
+    font-size: 0.9em;
+}
+
+/* ============================================================
+   SECCIÓN 12: BOTONES
+   Estilos interactivos para los botones de control
+   ============================================================ */
+button {
+    /* Fondo blanco */
+    background: white;
+    
+    /* Texto morado (contrasta con fondo) */
+    color: #667eea;
+    
+    /* Sin borde */
+    border: none;
+    
+    /* Espaciado: 12px arriba/abajo, 25px izquierda/derecha */
+    padding: 12px 25px;
+    
+    /* Esquinas redondeadas */
+    border-radius: 8px;
+    
+    /* Tamaño de fuente igual al base */
+    font-size: 1em;
+    
+    /* Espesor de fuente */
+    font-weight: 600;
+    
+    /* Cursor de mano (indica que es clickeable) */
+    cursor: pointer;
+    
+    /* Transiciones suave de todas las propiedades en 0.3s */
+    transition: all 0.3s ease;
+    
+    /* Sombra suave */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Efecto cuando pasas el mouse sobre el botón */
+button:hover {
+    /* Fondo gris claro */
+    background: #f0f0f0;
+    
+    /* Sube 2px hacia arriba (efecto de elevación) */
+    transform: translateY(-2px);
+    
+    /* Sombra más grande */
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Efecto cuando presionas el botón */
+button:active {
+    /* Vuelve a posición original */
+    transform: translateY(0);
+}

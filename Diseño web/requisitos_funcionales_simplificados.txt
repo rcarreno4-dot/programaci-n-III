@@ -1,0 +1,36 @@
+REQUISITOS FUNCIONALES SIMPLIFICADOS
+
+Sistema: Gestión académica y horas de práctica
+
+1. RF01 - Inicio de sesión
+El sistema debe permitir que el docente y el estudiante ingresen con credenciales válidas.
+
+2. RF02 - Consultar dashboard
+El sistema debe mostrar un panel con la información académica relevante según el rol del usuario.
+
+3. RF03 - Registrar calificaciones
+El docente debe poder registrar y actualizar las calificaciones de los estudiantes.
+
+4. RF04 - Registrar asistencia
+El docente debe poder registrar la asistencia de los estudiantes.
+
+5. RF05 - Registrar horas de práctica
+El docente debe poder registrar las horas de práctica realizadas por cada estudiante.
+
+6. RF06 - Consultar información académica
+El estudiante debe poder consultar sus notas, asistencia, horas de práctica y observaciones.
+
+7. RF07 - Detectar riesgo académico
+El sistema debe evaluar indicadores académicos y detectar a los estudiantes en riesgo.
+
+8. RF08 - Notificar alertas
+El sistema debe enviar notificaciones al docente o al estudiante cuando exista una situación relevante, como riesgo académico o actualización académica.
+
+9. RF09 - Solicitar aclaración de calificación
+El estudiante debe poder solicitar revisión o aclaración sobre una calificación.
+
+10. RF10 - Seguimiento de estudiantes en riesgo
+El docente debe poder revisar la información de los estudiantes en riesgo y realizar seguimiento.
+
+CONCLUSIÓN
+Los requisitos funcionales se han simplificado para conservar lo esencial del sistema: acceso, gestión académica, control de prácticas, seguimiento de rendimiento y notificaciones. Esta versión es más clara, ordenada y facilita su uso en el análisis del sistema y en la elaboración del diagrama de casos de uso.

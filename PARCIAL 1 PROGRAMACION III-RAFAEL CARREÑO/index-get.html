@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo HTTP GET</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 0 20px;
+            color: #243447;
+        }
+
+        button {
+            padding: 10px 16px;
+            border: 0;
+            border-radius: 4px;
+            background: #1769aa;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background: #8aa9bf;
+            cursor: wait;
+        }
+
+        pre {
+            min-height: 120px;
+            padding: 16px;
+            overflow-x: auto;
+            background: #f1f3f5;
+            border: 1px solid #d8dee4;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejemplo sencillo de HTTP GET</h1>
+    <p>El botón consulta un usuario de prueba y muestra la respuesta del servidor.</p>
+
+    <button id="consultarBtn">Realizar solicitud GET</button>
+    <pre id="resultado">La respuesta aparecerá aquí.</pre>
+
+    <script>
+        const consultarBtn = document.getElementById("consultarBtn");
+        const resultado = document.getElementById("resultado");
+
+        consultarBtn.addEventListener("click", async () => {
+            // Esta es la dirección del recurso que vamos a consultar.
+            const url = "https://jsonplaceholder.typicode.com/users/1";
+
+            // Desactivamos el botón mientras esperamos la respuesta.
+            consultarBtn.disabled = true;
+            resultado.textContent = "Consultando el servidor...";
+
+            try {
+                // fetch() realiza una solicitud HTTP. Si no indicamos el método,
+                // utiliza GET, que sirve para leer información sin modificarla.
+                const respuesta = await fetch(url);
+
+                // response.ok es true cuando el servidor responde con un estado
+                // exitoso, por ejemplo 200. Si no, lanzamos un error.
+                if (!respuesta.ok) {
+                    throw new Error(`Error HTTP: ${respuesta.status}`);
+                }
+
+                // json() convierte el cuerpo de la respuesta en un objeto JavaScript.
+                const usuario = await respuesta.json();
+
+                // Mostramos los datos con formato legible dentro del elemento <pre>.
+                resultado.textContent = JSON.stringify(usuario, null, 2);
+            } catch (error) {
+                // Este bloque captura problemas de red o respuestas no exitosas.
+                resultado.textContent = `No se pudo completar la solicitud: ${error.message}`;
+            } finally {
+                // El botón vuelve a estar disponible cuando la solicitud termina.
+                consultarBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

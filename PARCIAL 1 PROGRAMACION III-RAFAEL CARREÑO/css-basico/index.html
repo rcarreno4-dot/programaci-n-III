@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio básico de CSS</title>
+    <!-- El atributo href conecta este documento HTML con el archivo CSS externo. -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="contenedor">
+        <header class="cabecera">
+            <p class="etiqueta">Ejercicio 01 · HTML + CSS</p>
+            <h1>Diseño web básico</h1>
+            <p class="subtitulo">Una página sencilla con clases y selectores CSS.</p>
+        </header>
+
+        <nav class="navegacion" aria-label="Navegación principal">
+            <a class="enlace activo" href="#inicio">Inicio</a>
+            <a class="enlace" href="#temas">Temas</a>
+            <a class="enlace" href="#contacto">Contacto</a>
+        </nav>
+
+        <main id="inicio" class="contenido">
+            <section class="seccion bienvenida">
+                <h2>Aplicación de estilos</h2>
+                <p>Las clases del HTML permiten seleccionar elementos y cambiar su apariencia desde el archivo CSS.</p>
+                <a class="boton" href="#temas">Ver temas</a>
+            </section>
+
+            <section id="temas" class="seccion temas">
+                <h2>Propiedades utilizadas</h2>
+                <ul class="lista">
+                    <li class="item">Colores y fondos</li>
+                    <li class="item destacado">Espaciado y bordes</li>
+                    <li class="item">Tipografía y tamaños</li>
+                </ul>
+            </section>
+
+            <aside class="complemento">
+                <h3>Selector destacado</h3>
+                <p>La clase <code>.destacado</code> modifica únicamente el elemento que la utiliza.</p>
+            </aside>
+        </main>
+
+        <footer id="contacto" class="pie">
+            <p>Ejemplo académico de vinculación HTML y CSS.</p>
+            <small>15+ selectores y propiedades demostradas</small>
+        </footer>
+    </div>
+</body>
+</html>

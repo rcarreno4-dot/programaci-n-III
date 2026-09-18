@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!-- Indica al navegador que este documento utiliza HTML5. -->
+<html lang="es">
+<!-- html es el elemento raíz y lang="es" indica que el contenido está en español. -->
+<head>
+    <!-- head contiene información que el navegador necesita, pero que no se muestra como contenido principal. -->
+    <meta charset="UTF-8">
+    <!-- Permite utilizar correctamente tildes y otros caracteres especiales. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Hace que la página se adapte a celulares y otras pantallas. -->
+    <title>Estructura HTML5</title>
+    <!-- title define el texto que aparece en la pestaña del navegador. -->
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #243447;
+            line-height: 1.5;
+        }
+
+        header,
+        nav,
+        main,
+        aside,
+        footer {
+            padding: 16px;
+            margin-bottom: 12px;
+            border: 1px solid #d8dee4;
+        }
+
+        header {
+            background: #e8f1f8;
+        }
+
+        nav {
+            background: #f5f7f9;
+        }
+
+        nav a {
+            margin-right: 16px;
+            color: #1769aa;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr 260px;
+            gap: 16px;
+        }
+
+        section,
+        article {
+            padding: 12px;
+            border: 1px solid #d8dee4;
+        }
+
+        aside {
+            background: #fff8e1;
+        }
+
+        footer {
+            background: #243447;
+            color: white;
+        }
+
+        @media (max-width: 650px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- body contiene todo el contenido visible de la página. -->
+
+    <header>
+        <!-- header representa la cabecera de la página o de una sección. -->
+        <h1>Estructura básica de HTML5</h1>
+        <p>Esta página muestra el uso de etiquetas semánticas.</p>
+    </header>
+
+    <nav>
+        <!-- nav agrupa los enlaces principales de navegación. -->
+        <a href="#inicio">Inicio</a>
+        <a href="#contenido">Contenido</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+    <main id="inicio">
+        <!-- main contiene el contenido principal y único de esta página. -->
+        <section id="contenido">
+            <!-- section agrupa contenido relacionado bajo un mismo tema. -->
+            <h2>Contenido principal</h2>
+
+            <article>
+                <!-- article representa un contenido independiente, como una noticia o publicación. -->
+                <h3>¿Qué es HTML5?</h3>
+                <p>
+                    HTML5 es la versión moderna de HTML. Sus etiquetas semánticas
+                    ayudan a organizar y describir mejor el contenido.
+                </p>
+            </article>
+
+            <article>
+                <h3>Ejemplo de lista</h3>
+                <ul>
+                    <li>Encabezados con h1, h2 y h3</li>
+                    <li>Párrafos con p</li>
+                    <li>Enlaces con a</li>
+                </ul>
+            </article>
+        </section>
+
+        <aside>
+            <!-- aside contiene información complementaria al contenido principal. -->
+            <h2>Información adicional</h2>
+            <p>Este espacio puede contener enlaces relacionados o publicidad.</p>
+        </aside>
+    </main>
+
+    <footer id="contacto">
+        <!-- footer representa el pie de página, con información final o de contacto. -->
+        <p>Ejemplo educativo de estructura HTML5</p>
+    </footer>
+</body>
+</html>

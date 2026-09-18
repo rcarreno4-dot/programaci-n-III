@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documento de entrega final</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 50px;
+      color: #1f1f1f;
+      line-height: 1.7;
+    }
+    h1, h2, h3 {
+      color: #1d3557;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    p, li {
+      font-size: 16px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Documento de entrega final</h1>
+
+    <h2>1. Título</h2>
+    <p>Sistema de gestión académica y control de horas de práctica</p>
+
+    <h2>2. Objetivo</h2>
+    <p>El objetivo del sistema es permitir a docentes y estudiantes gestionar la información académica, registrar asistencia, controlar horas de práctica, detectar estudiantes en riesgo académico y enviar alertas o notificaciones relevantes.</p>
+
+    <h2>3. Actores del sistema</h2>
+    <ul>
+      <li>Estudiante</li>
+      <li>Docente</li>
+      <li>Sistema</li>
+    </ul>
+
+    <h2>4. Casos de uso principales</h2>
+
+    <h3>CU01 - Iniciar sesión</h3>
+    <p><strong>Actor principal:</strong> Docente, Estudiante</p>
+    <p><strong>Descripción:</strong> Permite ingresar al sistema mediante credenciales válidas.</p>
+
+    <h3>CU02 - Consultar dashboard</h3>
+    <p><strong>Actor principal:</strong> Docente, Estudiante</p>
+    <p><strong>Descripción:</strong> Permite visualizar información académica relevante según el rol del usuario.</p>
+
+    <h3>CU03 - Registrar calificación</h3>
+    <p><strong>Actor principal:</strong> Docente</p>
+    <p><strong>Descripción:</strong> Permite registrar o actualizar la nota de un estudiante.</p>
+
+    <h3>CU04 - Registrar asistencia</h3>
+    <p><strong>Actor principal:</strong> Docente</p>
+    <p><strong>Descripción:</strong> Permite registrar la asistencia del estudiante.</p>
+
+    <h3>CU05 - Registrar horas de práctica</h3>
+    <p><strong>Actor principal:</strong> Docente</p>
+    <p><strong>Descripción:</strong> Permite registrar las horas realizadas por el estudiante en prácticas.</p>
+
+    <h3>CU06 - Consultar notas, asistencia y horas</h3>
+    <p><strong>Actor principal:</strong> Estudiante</p>
+    <p><strong>Descripción:</strong> Permite consultar la información académica del estudiante.</p>
+
+    <h3>CU07 - Consultar observaciones</h3>
+    <p><strong>Actor principal:</strong> Estudiante</p>
+    <p><strong>Descripción:</strong> Permite revisar la retroalimentación o comentarios del docente.</p>
+
+    <h3>CU08 - Detectar riesgo académico</h3>
+    <p><strong>Actor principal:</strong> Sistema</p>
+    <p><strong>Descripción:</strong> Evalúa indicadores académicos y detecta estudiantes en riesgo.</p>
+
+    <h3>CU09 - Recibir notificación o alerta</h3>
+    <p><strong>Actor principal:</strong> Docente, Estudiante</p>
+    <p><strong>Descripción:</strong> El sistema informa sobre novedades relevantes, como riesgo académico o actualizaciones académicas.</p>
+
+    <h3>CU10 - Solicitar aclaración de calificación</h3>
+    <p><strong>Actor principal:</strong> Estudiante</p>
+    <p><strong>Descripción:</strong> Permite al estudiante solicitar revisión o explicación sobre una calificación.</p>
+
+    <h3>CU11 - Revisar estudiante en riesgo</h3>
+    <p><strong>Actor principal:</strong> Docente</p>
+    <p><strong>Descripción:</strong> Permite consultar el historial y seguimiento del estudiante en riesgo.</p>
+
+    <h2>5. Requisitos funcionales simplificados</h2>
+
+    <h3>RF01 - Inicio de sesión</h3>
+    <p>El sistema debe permitir que el docente y el estudiante ingresen con credenciales válidas.</p>
+
+    <h3>RF02 - Consultar dashboard</h3>
+    <p>El sistema debe mostrar un panel con la información académica relevante según el rol del usuario.</p>
+
+    <h3>RF03 - Registrar calificaciones</h3>
+    <p>El docente debe poder registrar y actualizar las calificaciones de los estudiantes.</p>
+
+    <h3>RF04 - Registrar asistencia</h3>
+    <p>El docente debe poder registrar la asistencia de los estudiantes.</p>
+
+    <h3>RF05 - Registrar horas de práctica</h3>
+    <p>El docente debe poder registrar las horas de práctica realizadas por cada estudiante.</p>
+
+    <h3>RF06 - Consultar información académica</h3>
+    <p>El estudiante debe poder consultar sus notas, asistencia, horas de práctica y observaciones.</p>
+
+    <h3>RF07 - Detectar riesgo académico</h3>
+    <p>El sistema debe evaluar indicadores académicos y detectar a los estudiantes en riesgo.</p>
+
+    <h3>RF08 - Notificar alertas</h3>
+    <p>El sistema debe enviar notificaciones al docente o al estudiante cuando exista una situación relevante, como riesgo académico o actualización académica.</p>
+
+    <h3>RF09 - Solicitar aclaración de calificación</h3>
+    <p>El estudiante debe poder solicitar revisión o aclaración sobre una calificación.</p>
+
+    <h3>RF10 - Seguimiento de estudiantes en riesgo</h3>
+    <p>El docente debe poder revisar la información de los estudiantes en riesgo y realizar seguimiento.</p>
+
+    <h2>6. Relaciones entre casos de uso</h2>
+    <ul>
+      <li>CU08 (Detectar riesgo académico) incluye la revisión de notas, asistencia, horas de práctica y observaciones.</li>
+      <li>CU09 (Recibir notificación o alerta) está asociado a los cambios importantes del sistema.</li>
+      <li>CU11 (Revisar estudiante en riesgo) incluye el análisis de la información del estudiante.</li>
+      <li>CU10 (Solicitar aclaración de calificación) está relacionado con CU03.</li>
+    </ul>
+
+    <h2>7. Conclusión</h2>
+    <p>La propuesta del sistema permite gestionar de manera ordenada la información académica y el control de horas de práctica. Se enfoca en los procesos principales del docente y del estudiante, asegurando la trazabilidad del rendimiento académico, la asistencia, la práctica profesional y el seguimiento de estudiantes en riesgo. La versión simplificada de los requisitos funcionales resulta más clara, entendible y adecuada para la documentación de entrega.</p>
+  </div>
+</body>
+</html>

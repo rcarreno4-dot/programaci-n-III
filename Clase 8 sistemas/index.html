@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<!-- 
+    ╔════════════════════════════════════════════════════════════╗
+    ║  Monitor de Uso del Sistema - Aplicación Web Interactiva  ║
+    ║  Monitorea en tiempo real: CPU, Memoria, Disco y Red       ║
+    ║  Versión 1.0 - Septiembre 2026                             ║
+    ╚════════════════════════════════════════════════════════════╝
+-->
+<html lang="es">
+<head>
+    <!-- Meta: Codificación de caracteres (UTF-8) -->
+    <meta charset="UTF-8">
+    
+    <!-- Meta: Viewport para diseño responsivo (móviles, tablets, desktops) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título de la página (aparece en pestaña del navegador) -->
+    <title>Monitor de Uso del Sistema</title>
+    
+    <!-- Vincula el archivo CSS externo para estilos -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Contenedor principal: limita ancho máximo y centra contenido -->
+    <div class="container">
+        <!-- ENCABEZADO: Título y descripción principal -->
+        <header>
+            <!-- Título principal de la aplicación -->
+            <h1>📊 Monitor de Sistema</h1>
+            <!-- Subtítulo descriptivo -->
+            <p>Panel de control en tiempo real</p>
+        </header>
+
+        <!-- SECCIÓN DE CONTROLES: Botones para interactuar con el monitor -->
+        <nav class="button-group" aria-label="Controles del monitor">
+            <!-- Botón: Inicia la monitorización automática -->
+            <button onclick="iniciarMonitor()" title="Comienza a monitorizar recursos">
+                ▶️ Iniciar Monitor
+            </button>
+            
+            <!-- Botón: Pausa la monitorización -->
+            <button onclick="detenerMonitor()" title="Pausa la monitorización">
+                ⏸️ Pausar
+            </button>
+            
+            <!-- Botón: Limpia datos y reinicia -->
+            <button onclick="limpiarDatos()" title="Borra datos y reinicia">
+                🔄 Reiniciar
+            </button>
+            
+            <!-- Botón: Ejercicio -->
+            <button onclick="ejercicio()" title="Reinicia el Sistema">
+                🔧 Reiniciar el Sistema
+            </button>
+        </nav>
+
+        <!-- SECCIÓN DE MÉTRICAS: Grid con 4 tarjetas de monitoreo -->
+        <section class="metrics-section" aria-label="Métricas del sistema">
+            <div class="grid">
+
+                <!-- TARJETA 1: Monitoreo de CPU -->
+                <article class="card cpu" aria-label="Monitor de CPU">
+                    <!-- Icono representativo -->
+                    <div class="card-icon" aria-hidden="true">⚙️</div>
+                    
+                    <!-- Título de la métrica -->
+                    <h2 class="card-title">CPU</h2>
+                    
+                    <!-- Barra de progreso: contenedor y relleno dinámico -->
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                        <!-- El id="cpuBar" permite que JavaScript modifique el ancho -->
+                        <div class="progress-fill" id="cpuBar" style="width: 0%"></div>
+                    </div>
+                    
+                    <!-- Valor numérico en porcentaje (se actualiza dinámicamente) -->
+                    <div class="value" id="cpuValue">0%</div>
+                    
+                    <!-- Estado: Óptimo/Advertencia/Crítico (color y texto cambian) -->
+                    <div class="status" id="cpuStatus">Óptimo</div>
+                </article>
+
+                <!-- TARJETA 2: Monitoreo de Memoria RAM -->
+                <article class="card memory" aria-label="Monitor de Memoria RAM">
+                    <div class="card-icon" aria-hidden="true">💾</div>
+                    <h2 class="card-title">Memoria RAM</h2>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-fill" id="memoryBar" style="width: 0%"></div>
+                    </div>
+                    <div class="value" id="memoryValue">0%</div>
+                    <div class="status" id="memoryStatus">Óptimo</div>
+                </article>
+
+                <!-- TARJETA 3: Monitoreo de Disco Duro -->
+                <article class="card disk" aria-label="Monitor de Disco Duro">
+                    <div class="card-icon" aria-hidden="true">💿</div>
+                    <h2 class="card-title">Disco Duro</h2>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-fill" id="diskBar" style="width: 0%"></div>
+                    </div>
+                    <div class="value" id="diskValue">0%</div>
+                    <div class="status" id="diskStatus">Óptimo</div>
+                </article>
+
+                <!-- TARJETA 4: Monitoreo de Conexión de Red -->
+                <article class="card network" aria-label="Monitor de Conexión de Red">
+                    <div class="card-icon" aria-hidden="true">🌐</div>
+                    <h2 class="card-title">Conexión Red</h2>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-fill" id="networkBar" style="width: 0%"></div>
+                    </div>
+                    <div class="value" id="networkValue">0%</div>
+                    <div class="status" id="networkStatus">Conectado</div>
+                </article>
+            </div>
+        </section>
+
+        <!-- SECCIÓN DE GRÁFICOS: Histórico visual de uso de CPU -->
+        <section class="chart-section" aria-label="Gráfico de histórico">
+            <div class="chart-container">
+                <!-- Título del gráfico -->
+                <h2 class="chart-title">📈 Histórico de Uso de CPU</h2>
+                
+                <!-- Canvas: Elemento para dibujar el gráfico dinámicamente -->
+                <!-- El id="myChart" permite que JavaScript acceda y dibuje en él -->
+                <canvas 
+                    id="myChart" 
+                    width="400" 
+                    height="100"
+                    role="img"
+                    aria-label="Gráfico de línea mostrando el histórico de uso de CPU">
+                </canvas>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- PIE DE PÁGINA: Información de estado y copyright -->
+    <footer class="footer">
+        <!-- Última actualización: Muestra la hora actual -->
+        <p>
+            🕐 Última actualización: 
+            <!-- El span con id permite que JavaScript actualice la hora -->
+            <time id="timestamp">--:--:--</time>
+        </p>
+        
+        <!-- Copyright y atribución -->
+        <p>© 2026 - Monitor de Sistema | Proyecto Educativo</p>
+        
+        <!-- Crédito del desarrollador -->
+        <p style="font-weight: bold; color: #ffd700; margin-top: 10px;">
+            👨‍💻 Desarrollado por: RAFAEL FABIAN CARREÑO BARRERA
+        </p>
+    </footer>
+
+    <!-- SCRIPT EXTERNO: Carga la lógica JavaScript -->
+    <!-- Se coloca al final del body para que el DOM esté listo antes de ejecutarse -->
+    <script>
+        console.log("Ejecuto script.");
+        console.log("Rafael Carreno.");
+        console.log("Tengo mucha hambre.");
+        var nombre = prompt("Ingrese su nombre:");
+        console.log("El nombre ingresado es: " + nombre);
+        let edad = prompt("Ingrese su edad:");
+        console.log("La edad ingresada es: " + edad);
+        const mensaje = "Hola " + nombre + ", tienes " + edad + " anos.";
+        console.log(mensaje);
+        console.log("═══════════════════════════════════════════════════════");
+        console.log("POR: RAFAEL FABIAN CARREÑO BARRERA");
+        console.log("═══════════════════════════════════════════════════════");
+    </script>
+    <script src="script.js"></script>
+</body>
+<!-- ═══════════════════════════════════════════════════════════════
+     DESARROLLADO POR: RAFAEL FABIAN CARREÑO BARRERA
+     FECHA: Septiembre 2026
+     Monitor de Uso del Sistema - Aplicación Web Interactiva
+     ═══════════════════════════════════════════════════════════════ -->
+</html>

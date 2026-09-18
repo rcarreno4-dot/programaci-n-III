@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="UDI | Gestión de prácticas académicas para estudiantes, docentes y directores">
+    <title>UDI | Gestión de prácticas académicas</title>
+    <link rel="stylesheet" href="view/styles.css">
+</head>
+<body>
+    <div class="app-shell">
+        <header class="topbar">
+            <a class="brand" href="#resumen" aria-label="Ir al resumen del proyecto">
+                <span class="brand-mark" aria-hidden="true">RA</span>
+                <span>
+                    <strong>UDI</strong>
+                    <small>Universidad de Investigación y Desarrollo</small>
+                </span>
+            </a>
+            <div class="student-id"><strong>Rafael Carreño</strong><span>C.C. 1098673135</span></div>
+        </header>
+
+        <div class="workspace">
+            <aside class="sidebar" aria-label="Navegación del proyecto">
+                <div class="sidebar-label">Panel académico</div>
+                <nav class="tabs" role="tablist" aria-label="Secciones del proyecto">
+                    <button class="tab is-active" role="tab" aria-selected="true" aria-controls="panel-resumen" data-tab="resumen">
+                        <span class="tab-icon" aria-hidden="true">◈</span> Resumen
+                    </button>
+                    <button class="tab" role="tab" aria-selected="false" aria-controls="panel-equipo" data-tab="equipo">
+                        <span class="tab-icon" aria-hidden="true">◎</span> Actores
+                    </button>
+                    <button class="tab" role="tab" aria-selected="false" aria-controls="panel-diagnostico" data-tab="diagnostico">
+                        <span class="tab-icon" aria-hidden="true">⌁</span> Estudiantes
+                    </button>
+                    <button class="tab" role="tab" aria-selected="false" aria-controls="panel-propuesta" data-tab="propuesta">
+                        <span class="tab-icon" aria-hidden="true">↗</span> Docentes
+                    </button>
+                    <button class="tab" role="tab" aria-selected="false" aria-controls="panel-evidencias" data-tab="evidencias">
+                        <span class="tab-icon" aria-hidden="true">▧</span> Directores
+                    </button>
+                </nav>
+                <div class="sidebar-footnote">
+                    <span class="footnote-icon" aria-hidden="true">✦</span>
+                    <p>Una vista compartida para acompañar cada práctica académica.</p>
+                </div>
+            </aside>
+
+            <main class="main-content">
+                <div id="app" aria-live="polite"></div>
+            </main>
+        </div>
+    </div>
+
+    <script type="module" src="controller/app.js"></script>
+</body>
+</html>

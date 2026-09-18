@@ -21,6 +21,19 @@ Usos comunes
 •	Servidores de desarrollo para frameworks frontend como React, Angular o Vue.
 
 
+¿Para qué sirve?
+Se utiliza principalmente para desarrollar el backend de aplicaciones modernas, conectar sistemas y crear herramientas de software:
+
+Servidores web y APIs RESTful: Permite construir el motor detrás de sitios web o aplicaciones móviles para procesar datos, gestionar usuarios y responder a peticiones HTTP.
+
+Aplicaciones en tiempo real: Es ideal para sistemas que requieren comunicación instantánea entre cliente y servidor, como chats en vivo, juegos multijugador o herramientas colaborativas (ej. Google Docs) mediante WebSockets.
+
+Microservicios y arquitectura de eventos: Facilita la división de aplicaciones grandes en servicios pequeños, independientes y escalables.
+
+Herramientas de línea de comandos (CLI): Permite crear scripts y automatizar tareas de desarrollo o administración de sistemas.
+
+Gestión de paquetes de desarrollo: Sirve de base para utilizar npm (Node Package Manager), permitiendo instalar librerías y ejecutar entornos de desarrollo para frameworks como React, Vue o Angular.
+
 
 APIs 
 

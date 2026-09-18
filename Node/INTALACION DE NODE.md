@@ -1,5 +1,6 @@
 *INTALACION DE NODE*
-file:///C:/Users/SALA-12.SI-12-08/Documents/GIT/programaci-n-III/Node/index.html
+
+
 
  <img width="496" height="383" alt="node" src="https://github.com/user-attachments/assets/adf7437d-e05c-4e41-af4f-5ae6912ff631" />
 

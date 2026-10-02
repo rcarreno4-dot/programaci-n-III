@@ -1,0 +1,17 @@
+{
+  "name": "mi-proyecto-rafaelexpress",
+  "version": "1.0.0",
+  "description": "mi primer proyecto con express y node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "espress": "^0.0.0",
+    "express": "^5.2.1"
+  }
+}

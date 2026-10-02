@@ -16,3 +16,10 @@ let precio = 1000
 let descuento = 0.15
 let total = `El precio es: ${precio} y el descuento es: ${descuento}. El total a pagar es: ${precio - (precio * descuento)}`;
 console.log(total); // Imprimir el total a pagar
+
+// Template string con expresiones alt +96
+const numero = (num1, num2)=> {
+    return`el numero es: ${num1 + num2}`;   
+}
+const resultado = numero(5, 10);    
+console.log(resultado); // Imprimir el resultado de la función

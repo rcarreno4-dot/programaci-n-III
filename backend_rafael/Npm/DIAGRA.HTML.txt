@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Modelo Entidad-Relacion SIGPRA</title>
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .mermaid {
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <h2>MODELO ENTIDAD-RELACIÓN SIGPRA (NOTACIÓN CON ATRIBUTOS Y RELACIONES)</h2>
+
+    <div class="mermaid">
+    graph TD
+        %% ENTIDADES PRINCIPALES
+        USUARIO["<b>USUARIO</b><br/>──────<br/>• id_usuario<br/>• nombres<br/>• apellidos<br/>• correo<br/>• password_hash<br/>• rol<br/>• estado<br/>• creado_en"]
+        
+        ESTUDIANTE["<b>ESTUDIANTE</b><br/>──────<br/>• id_estudiante<br/>• codigo_estudiantil<br/>• documento<br/>• programa<br/>• semestre<br/>• estado_matricula<br/>• id_usuario (FK)"]
+        
+        DOCENTE["<b>DOCENTE_ASESOR</b><br/>──────<br/>• id_docente_asesor<br/>• profesion<br/>• cupo_maximo<br/>• activo<br/>• id_usuario (FK)"]
+        
+        COORD["<b>COORDINADOR_PRACTICAS</b><br/>──────<br/>• id_coordinador<br/>• programa<br/>• activo<br/>• id_usuario (FK)"]
+
+        INST["<b>INSTITUCION</b><br/>──────<br/>• id_institucion<br/>• nombre<br/>• nit<br/>• direccion<br/>• telefono<br/>• correo_contacto<br/>• responsable_contacto<br/>• activa"]
+
+        CONVENIO["<b>CONVENIO</b><br/>──────<br/>• id_convenio<br/>• numero_convenio<br/>• fecha_inicio<br/>• fecha_fin<br/>• documento_url<br/>• estado<br/>• id_institucion (FK)"]
+
+        PLAZA["<b>PLAZA_PRACTICA</b><br/>──────<br/>• id_plaza<br/>• nivel_practica<br/>• jornada<br/>• cupos_ofrecidos<br/>• cupos_ocupados<br/>• docente_titular<br/>• estado<br/>• id_convenio (FK)"]
+
+        PERIODO["<b>PERIODO_PRACTICA</b><br/>──────<br/>• id_periodo<br/>• programa<br/>• nivel_practica<br/>• anio<br/>• semestre<br/>• fecha_inicio<br/>• fecha_fin<br/>• fecha_limite_reportes<br/>• horas_minimas<br/>• estado<br/>• id_coordinador (FK)"]
+
+        ASIG["<b>ASIGNACION</b><br/>──────<br/>• id_asignacion<br/>• fecha_asignacion<br/>• estado<br/>• horas_aprobadas<br/>• id_estudiante (FK)<br/>• id_plaza (FK)<br/>• id_docente_asesor (FK)<br/>• id_periodo (FK)"]
+
+        REG_ACT["<b>REGISTRO_ACTIVIDAD</b><br/>──────<br/>• id_actividad<br/>• fecha_actividad<br/>• tipo_actividad<br/>• descripcion<br/>• horas_reportadas<br/>• estado<br/>• observacion_validacion<br/>• creado_en<br/>• id_asignacion (FK)"]
+
+        EVID["<b>EVIDENCIA</b><br/>──────<br/>• id_evidencia<br/>• mongo_document_id<br/>• nombre_archivo<br/>• tipo_archivo<br/>• archivo_url<br/>• hash_archivo<br/>• estado<br/>• cargado_en<br/>• id_actividad (FK)"]
+
+        VISITA["<b>VISITA_SEGUIMIENTO</b><br/>──────<br/>• id_visita<br/>• mongo_bitacora_id<br/>• fecha_visita<br/>• modalidad<br/>• hubo_asistencia<br/>• observacion_resumen<br/>• creado_en<br/>• id_asignacion (FK)<br/>• id_docente_asesor (FK)"]
+
+        RUBRICA["<b>RUBRICA</b><br/>──────<br/>• id_rubrica<br/>• nombre<br/>• descripcion<br/>• activa<br/>• id_periodo (FK)"]
+
+        CRIT["<b>CRITERIO_RUBRICA</b><br/>──────<br/>• id_criterio<br/>• nombre<br/>• descripcion<br/>• peso<br/>• id_rubrica (FK)"]
+
+        EVAL["<b>EVALUACION</b><br/>──────<br/>• id_evaluacion<br/>• puntaje_total<br/>• concepto_final<br/>• observacion_general<br/>• evaluado_en<br/>• id_visita (FK)<br/>• id_asignacion (FK)<br/>• id_rubrica (FK)"]
+
+        DETALLE["<b>DETALLE_EVALUACION</b><br/>──────<br/>• id_detalle<br/>• puntaje<br/>• observacion<br/>• id_evaluacion (FK)<br/>• id_criterio (FK)"]
+
+        %% HERENCIA
+        ESTUDIANTE --▲-- USUARIO
+        DOCENTE --▲-- USUARIO
+        COORD --▲-- USUARIO
+
+        %% RELACIONES (ROMBOS)
+        INST --- R1{Suscribe} --- CONVENIO
+        CONVENIO --- R2{Ofrece} --- PLAZA
+        COORD --- R3{Gestiona} --- PERIODO
+        ESTUDIANTE --- R4{Se asigna} --- ASIG
+        DOCENTE --- R5{Supervisa} --- ASIG
+        PLAZA --- R6{Ocupa} --- ASIG
+        PERIODO --- R7{Corresponde} --- ASIG
+        ASIG --- R8{Registra} --- REG_ACT
+        REG_ACT --- R9{Adjunta} --- EVID
+        ASIG --- R10{Recibe} --- VISITA
+        PERIODO --- R11{Define} --- RUBRICA
+        RUBRICA --- R12{Contiene} --- CRIT
+        VISITA --- R13{Origina} --- EVAL
+        EVAL --- R14{Desglosa} --- DETALLE
+        CRIT --- R15{Aplica} --- DETALLE
+    </div>
+
+</body>
+</html>

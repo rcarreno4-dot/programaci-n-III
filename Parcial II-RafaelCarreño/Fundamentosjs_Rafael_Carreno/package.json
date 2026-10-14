@@ -1,0 +1,21 @@
+{
+  "name": "fundamentosjs-rafael-carreno",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ejercicios de JavaScript y carrito de compras con Node.js y Express",
+  "main": "carrito-express/app.js",
+  "scripts": {
+    "start": "node carrito-express/app.js",
+    "dev": "nodemon carrito-express/app.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "overrides": {
+    "chokidar": "^4.0.3"
+  }
+}

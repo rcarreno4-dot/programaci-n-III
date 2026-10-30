@@ -1,7 +1,11 @@
 const express = require('express');
+const path = require('node:path');
 
 const app = express();
 app.use(express.json());
+app.get('/app', (request, response) => {
+  response.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 app.use((request, response, next) => {
   response.on('finish', () => {
     console.log(`${request.method} ${request.originalUrl} ${response.statusCode}`);

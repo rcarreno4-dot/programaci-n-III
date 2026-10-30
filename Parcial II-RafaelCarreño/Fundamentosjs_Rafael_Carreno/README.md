@@ -74,6 +74,7 @@ Archivo temporal eliminado.
    ```
 
    Para iniciarlo sin Nodemon, usa `npm start`. La API queda disponible en `http://localhost:3000`.
+   La interfaz React está disponible en `http://localhost:3000/app`.
    Nodemon reinicia el servidor cuando guardas cambios; cada solicitud también aparece en esa terminal con su método, ruta y estado HTTP.
 
 ### Rutas disponibles
@@ -81,6 +82,7 @@ Archivo temporal eliminado.
 | Método | Ruta | Función |
 | --- | --- | --- |
 | `GET` | `/` | Mensaje de bienvenida |
+| `GET` | `/app` | Interfaz React del carrito |
 | `GET` | `/api/products` | Lista productos; admite `?category=alimentos`, `electrodomesticos` o `automoviles` |
 | `GET` | `/api/cart` | Consulta artículos y total del carrito |
 | `POST` | `/api/cart/items` | Agrega o incrementa un producto |

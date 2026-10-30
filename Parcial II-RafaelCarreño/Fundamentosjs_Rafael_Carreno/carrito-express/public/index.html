@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f3ed" />
+    <title>Mercado | Carrito de compras</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: #17231d;
+        background: #f5f3ed;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+      }
+
+      * { box-sizing: border-box; }
+      body { margin: 0; min-width: 320px; }
+      button { font: inherit; cursor: pointer; }
+      .shell { max-width: 1120px; margin: 0 auto; padding: 28px 24px 64px; }
+      header { display: flex; justify-content: space-between; align-items: center; gap: 20px; margin-bottom: 52px; }
+      .brand { display: flex; align-items: center; gap: 11px; font-size: 19px; font-weight: 800; letter-spacing: -0.5px; }
+      .brand-mark { display: grid; width: 38px; height: 38px; place-items: center; border-radius: 12px; color: #f5f3ed; background: #216346; }
+      .cart-pill { padding: 10px 15px; border: 1px solid #dce1d8; border-radius: 999px; background: #fff; font-size: 14px; font-weight: 700; }
+      .eyebrow { margin: 0 0 12px; color: #34785a; font-size: 12px; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; }
+      h1 { max-width: 650px; margin: 0; font-size: clamp(38px, 7vw, 66px); line-height: 1.03; letter-spacing: -3px; }
+      .intro { max-width: 520px; margin: 17px 0 0; color: #647169; font-size: 16px; line-height: 1.6; }
+      .layout { display: grid; grid-template-columns: minmax(0, 1fr) 320px; align-items: start; gap: 28px; margin-top: 40px; }
+      .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 12px; margin-bottom: 17px; }
+      h2 { margin: 0; font-size: 22px; letter-spacing: -0.7px; }
+      .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+      .filter { padding: 8px 13px; border: 1px solid #dce1d8; border-radius: 999px; color: #526057; background: transparent; font-size: 13px; }
+      .filter.active { border-color: #216346; color: #fff; background: #216346; }
+      .products { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+      .product { display: flex; min-height: 190px; flex-direction: column; padding: 20px; border: 1px solid #e6e8df; border-radius: 18px; background: #fff; }
+      .product-category { margin: 0 0 22px; color: #718078; font-size: 11px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
+      .product h3 { margin: 0; font-size: 17px; letter-spacing: -0.3px; }
+      .product-bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; padding-top: 19px; }
+      .price { font-size: 15px; font-weight: 800; }
+      .add-button { padding: 9px 12px; border: 0; border-radius: 10px; color: #fff; background: #216346; font-size: 13px; font-weight: 700; }
+      .add-button:hover, .clear-button:hover { background: #174a33; }
+      .cart { position: sticky; top: 20px; padding: 22px; border: 1px solid #e6e8df; border-radius: 18px; background: #fff; }
+      .cart-title { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 17px; border-bottom: 1px solid #edf0e9; }
+      .cart-title h2 { font-size: 19px; }
+      .cart-count { color: #718078; font-size: 13px; }
+      .cart-items { display: grid; gap: 14px; padding: 18px 0; }
+      .cart-item { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 5px 10px; }
+      .cart-item-name { font-size: 13px; font-weight: 700; }
+      .cart-item-quantity, .cart-item-subtotal { color: #718078; font-size: 12px; }
+      .cart-item-subtotal { grid-column: 2; grid-row: 2; color: #35463c; font-weight: 700; }
+      .remove-button { justify-self: start; padding: 0; border: 0; color: #9a5647; background: none; font-size: 12px; }
+      .empty { margin: 0; padding: 21px 0; color: #718078; font-size: 13px; line-height: 1.5; }
+      .total { display: flex; justify-content: space-between; gap: 12px; padding: 17px 0; border-top: 1px solid #edf0e9; font-size: 14px; font-weight: 800; }
+      .clear-button { width: 100%; padding: 11px; border: 0; border-radius: 10px; color: #fff; background: #216346; font-size: 13px; font-weight: 700; }
+      .clear-button:disabled { cursor: not-allowed; opacity: 0.45; }
+      .message { margin: 18px 0 0; color: #9a5647; font-size: 13px; }
+      .message button { margin-left: 8px; padding: 0; border: 0; color: #216346; background: none; font-weight: 700; text-decoration: underline; }
+      .loading { color: #647169; }
+
+      @media (max-width: 760px) {
+        .shell { padding: 22px 18px 42px; }
+        header { margin-bottom: 40px; }
+        .layout { grid-template-columns: 1fr; }
+        .cart { position: static; grid-row: 1; }
+      }
+
+      @media (max-width: 480px) {
+        .products { grid-template-columns: 1fr; }
+        h1 { letter-spacing: -2px; }
+        .cart-pill { padding: 9px 11px; font-size: 12px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script>
+      const { createElement: h, useEffect, useState } = React;
+      const categories = [
+        { id: '', label: 'Todos' },
+        { id: 'alimentos', label: 'Alimentos' },
+        { id: 'electrodomesticos', label: 'Hogar' },
+        { id: 'automoviles', label: 'Automóviles' }
+      ];
+      const categoryLabels = {
+        alimentos: 'Alimentos',
+        electrodomesticos: 'Electrodomésticos',
+        automoviles: 'Automóviles'
+      };
+      const money = new Intl.NumberFormat('es-CO', {
+        style: 'currency',
+        currency: 'COP',
+        maximumFractionDigits: 0
+      });
+
+      async function request(url, options) {
+        const response = await fetch(url, options);
+        const data = await response.json();
+        if (!response.ok) {
+          throw new Error(data.error || 'No se pudo completar la solicitud.');
+        }
+        return data;
+      }
+
+      function getErrorMessage(error) {
+        if (error instanceof TypeError || error instanceof SyntaxError) {
+          return 'No se pudo conectar con la API. Inicia el servidor con "npm start" y abre http://localhost:3000/app.';
+        }
+        return error.message;
+      }
+
+      function App() {
+        const [products, setProducts] = useState([]);
+        const [cart, setCart] = useState({ items: [], total: 0 });
+        const [category, setCategory] = useState('');
+        const [error, setError] = useState('');
+        const [loading, setLoading] = useState(true);
+
+        async function refreshCart() {
+          setCart(await request('/api/cart'));
+        }
+
+        useEffect(() => {
+          let active = true;
+          setLoading(true);
+          setError('');
+          request(`/api/products${category ? `?category=${encodeURIComponent(category)}` : ''}`)
+            .then((result) => {
+              if (active) setProducts(result);
+            })
+            .catch((cause) => {
+              if (active) setError(getErrorMessage(cause));
+            })
+            .finally(() => {
+              if (active) setLoading(false);
+            });
+          return () => { active = false; };
+        }, [category]);
+
+        useEffect(() => {
+          refreshCart().catch((cause) => setError(getErrorMessage(cause)));
+        }, []);
+
+        async function addProduct(productId) {
+          try {
+            setError('');
+            await request('/api/cart/items', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ productId, quantity: 1 })
+            });
+            await refreshCart();
+          } catch (cause) {
+            setError(getErrorMessage(cause));
+          }
+        }
+
+        async function removeProduct(productId) {
+          try {
+            setError('');
+            await request(`/api/cart/items/${encodeURIComponent(productId)}`, { method: 'DELETE' });
+            await refreshCart();
+          } catch (cause) {
+            setError(getErrorMessage(cause));
+          }
+        }
+
+        async function clearCart() {
+          try {
+            setError('');
+            await request('/api/cart', { method: 'DELETE' });
+            await refreshCart();
+          } catch (cause) {
+            setError(getErrorMessage(cause));
+          }
+        }
+
+        return h('main', { className: 'shell' },
+          h('header', null,
+            h('div', { className: 'brand' },
+              h('span', { className: 'brand-mark', 'aria-hidden': true }, 'M'),
+              h('span', null, 'mercado.')
+            ),
+            h('div', { className: 'cart-pill' }, `🛒 ${cart.items.length} ${cart.items.length === 1 ? 'producto' : 'productos'}`)
+          ),
+          h('section', null,
+            h('p', { className: 'eyebrow' }, 'Compra fácil, vive mejor'),
+            h('h1', null, 'Lo que necesitas, en un solo lugar.'),
+            h('p', { className: 'intro' }, 'Explora productos para tu día a día y agrégalos a tu carrito.')
+          ),
+          h('div', { className: 'layout' },
+            h('section', { 'aria-labelledby': 'products-title' },
+              h('div', { className: 'section-heading' },
+                h('h2', { id: 'products-title' }, 'Productos')
+              ),
+              h('nav', { className: 'filters', 'aria-label': 'Filtrar productos' },
+                categories.map((item) => h('button', {
+                  key: item.id || 'all',
+                  type: 'button',
+                  className: `filter${category === item.id ? ' active' : ''}`,
+                  'aria-pressed': category === item.id,
+                  onClick: () => setCategory(item.id)
+                }, item.label))
+              ),
+              loading
+                ? h('p', { className: 'loading', role: 'status' }, 'Cargando productos...')
+                : h('div', { className: 'products' }, products.map((product) =>
+                  h('article', { className: 'product', key: product.id },
+                    h('p', { className: 'product-category' }, categoryLabels[product.category] || product.category),
+                    h('h3', null, product.name),
+                    h('div', { className: 'product-bottom' },
+                      h('span', { className: 'price' }, money.format(product.price)),
+                      h('button', {
+                        className: 'add-button',
+                        type: 'button',
+                        onClick: () => addProduct(product.id)
+                      }, 'Agregar +')
+                    )
+                  )
+                ))
+            ),
+            h('aside', { className: 'cart', 'aria-labelledby': 'cart-title' },
+              h('div', { className: 'cart-title' },
+                h('h2', { id: 'cart-title' }, 'Tu carrito'),
+                h('span', { className: 'cart-count' }, `${cart.items.length} ${cart.items.length === 1 ? 'artículo' : 'artículos'}`)
+              ),
+              cart.items.length
+                ? h('div', { className: 'cart-items' }, cart.items.map((item) =>
+                  h('div', { className: 'cart-item', key: item.productId },
+                    h('span', { className: 'cart-item-name' }, item.name),
+                    h('span', { className: 'cart-item-quantity' }, `Cantidad: ${item.quantity}`),
+                    h('span', { className: 'cart-item-subtotal' }, money.format(item.subtotal)),
+                    h('button', {
+                      type: 'button',
+                      className: 'remove-button',
+                      onClick: () => removeProduct(item.productId)
+                    }, 'Quitar')
+                  )
+                ))
+                : h('p', { className: 'empty' }, 'Aún no tienes productos. Agrega algo que te guste.'),
+              h('div', { className: 'total' },
+                h('span', null, 'Total'),
+                h('span', null, money.format(cart.total))
+              ),
+              h('button', {
+                type: 'button',
+                className: 'clear-button',
+                disabled: cart.items.length === 0,
+                onClick: clearCart
+              }, 'Vaciar carrito')
+            )
+          ),
+          error
+            ? h('p', { className: 'message', role: 'alert' },
+              error,
+              h('button', { type: 'button', onClick: () => window.location.reload() }, 'Reintentar')
+            )
+            : null
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+    </script>
+  </body>
+</html>
